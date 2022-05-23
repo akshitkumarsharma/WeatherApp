@@ -9,20 +9,28 @@ import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.databinding.DataBindingUtil
+import com.example.weatherapp.Utilities.ApiUtilities
+import com.example.weatherapp.databinding.ActivityMainBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var activityMainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        activityMainBinding=DataBindingUtil.setContentView(this, R.layout.activity_main)
+        supportActionBar?.hide()
 
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this)
+
+        activityMainBinding.rlMainLayout.visibility=View.GONE
 
         getCurrentLocation()
 
@@ -55,6 +63,8 @@ class MainActivity : AppCompatActivity() {
                     {
                         //call current weather
 
+                        fetchCurrentWeather(location.latitude.toString(), location.longitude.toString())
+
                     }
 
                 }
@@ -74,6 +84,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun fetchCurrentWeather(latitude: String, longitude: String) {
+
+        activityMainBinding.pbLoading.visibility=View.VISIBLE
+        ApiUtilities.getApiInterface()?.getCurrentWeatherData(latitude,longitude,API_KEY)
+
+
+
+
+
+
+    }
+
     private fun isLocationEnabled():Boolean
     {
         val locationManager: LocationManager =getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -91,6 +113,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         private const val PERMISSION_REQUEST_ACCESS_LOCATION=100
+        const val API_KEY ="24071246c1506ee1fcb52eb48fa76443"
     }
 
     private fun checkPermissions():Boolean
