@@ -161,14 +161,14 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.tvDateAndTime.text=currentDate
         activityMainBinding.tvDayMaxTemp.text="Day "+kelvinToCelsius(body!!.main.temp_max)+"°"
         activityMainBinding.tvDayMinTemp.text="Night "+kelvinToCelsius(body!!.main.temp_min)+"°"
-        activityMainBinding.tvDayMaxTemp.text=""+kelvinToCelsius(body!!.main.temp)+"°"
+        activityMainBinding.tvTemp.text=""+kelvinToCelsius(body!!.main.temp)+"°"
         activityMainBinding.tvFeelsLike.text="Feels like "+kelvinToCelsius(body!!.main.feels_like)+"°"
         activityMainBinding.tvWeatherType.text=body.weather[0].main
         activityMainBinding.tvSunrise.text=timeStampToLocalDate(body.sys.sunrise.toLong())
         activityMainBinding.tvSunset.text=timeStampToLocalDate(body.sys.sunset.toLong())
         activityMainBinding.tvPressure.text=body.main.pressure.toString()
         activityMainBinding.tvHumidity.text=body.main.humidity.toString()+" %"
-        activityMainBinding.tvWindSpeed.text=body.wind.speed.toString()+" m/s"
+        activityMainBinding.tvWindSpeed.text=(body.wind.speed).times(3.6).roundToInt().toString()+" km/h"
         activityMainBinding.tvTempFarenhite.text=""+((kelvinToCelsius(body.main.temp)).times(1.8).plus(32).roundToInt())
         activityMainBinding.etGetCityName.setText(body.name)
 
@@ -327,6 +327,7 @@ class MainActivity : AppCompatActivity() {
 
         }
         return localTime.toString()
+
 
     }
 

@@ -280,7 +280,7 @@
                                         android:textSize="@dimen/text_med"
                                         android:gravity="center"
                                         android:textColor="@color/white"
-                                        android:text="@string/pressure" />
+                                        android:text="@string/humidity" />
                                 </LinearLayout>
                             </RelativeLayout>
 
@@ -308,7 +308,7 @@
                                         android:id="@+id/tv_wind_speed"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:textSize="@dimen/text_x_large"
+                                        android:textSize="21sp"
                                         android:gravity="center"
                                         android:textColor="@color/white"
                                         android:text="@string/default_numbers" />
@@ -319,7 +319,7 @@
                                         android:textSize="@dimen/text_med"
                                         android:gravity="center"
                                         android:textColor="@color/white"
-                                        android:text="@string/pressure" />
+                                        android:text="@string/wind_speed" />
                                 </LinearLayout>
                             </RelativeLayout>
                         </LinearLayout>
@@ -356,7 +356,7 @@
                                         android:id="@+id/tv_sunrise"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:textSize="@dimen/text_x_large"
+                                        android:textSize="21sp"
                                         android:gravity="center"
                                         android:textColor="@color/white"
                                         android:text="@string/default_numbers" />
@@ -367,7 +367,7 @@
                                         android:textSize="@dimen/text_med"
                                         android:gravity="center"
                                         android:textColor="@color/white"
-                                        android:text="@string/pressure" />
+                                        android:text="@string/sunrise" />
                                 </LinearLayout>
                             </RelativeLayout>
 
@@ -395,7 +395,7 @@
                                         android:id="@+id/tv_sunset"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:textSize="@dimen/text_x_large"
+                                        android:textSize="21sp"
                                         android:gravity="center"
                                         android:textColor="@color/white"
                                         android:text="@string/default_numbers" />
@@ -406,7 +406,7 @@
                                         android:textSize="@dimen/text_med"
                                         android:gravity="center"
                                         android:textColor="@color/white"
-                                        android:text="@string/pressure" />
+                                        android:text="@string/sunset" />
                                 </LinearLayout>
                             </RelativeLayout>
 
@@ -445,7 +445,7 @@
                                         android:textSize="@dimen/text_med"
                                         android:gravity="center"
                                         android:textColor="@color/white"
-                                        android:text="@string/pressure" />
+                                        android:text="@string/temperature_in_f" />
                                 </LinearLayout>
                             </RelativeLayout>
                         </LinearLayout>
